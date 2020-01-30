@@ -25,8 +25,8 @@ class FrontControl extends Controller
         $slide=Slider::where('aktif','y')->get();
         $menu=kategori::all();
         $art=Artikel::where('aktif','y')->orderBy('id','DESC')->paginate('10');
-        $gal=Galeri::inRandomOrder()->limit(12)->get();
-        $vid=Vidtube::inRandomOrder()->limit(12)->get();
+        $gal=Galeri::inRandomOrder()->limit(8)->get();
+        $vid=Vidtube::inRandomOrder()->limit(3)->get();
         $prod=Barang::join('barang_kategoris','barang_kategoris.id','=','barangs.idk')->select(DB::raw('barangs.id as idb, barangs.*,barang_kategoris.*'))->inRandomOrder()->get();
         return view('frontend.index',['st'=>$st,'sl'=>$slide,'kt'=>$menu,'art'=>$art,'gal'=>$gal,'vid'=>$vid,'prod'=>$prod]);
     }

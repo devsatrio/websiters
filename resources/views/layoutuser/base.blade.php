@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="M_Adnan">
-    <title>Social Networking Connecting HTML5 Template</title>
+    <title>{{$st->web}}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('assets_user/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -26,7 +26,7 @@
 
     <!-- Online Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
-
+    @yield('css')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,8 +46,8 @@
             <div class="container">
 
                 <!-- Logo -->
-                <div class="logo"> <a href="index.html"><img class="img-responsive" src="images/logo-dark.png"
-                            alt=""></a> </div>
+                <div class="logo"> <a href="index.html"><img class="img-responsive" src="{{asset('logo/'.$st->logo)}}"
+                            alt="" width="50%"></a> </div>
                 <nav class="navbar ownmenu navbar-expand-lg" id="nav-resposive">
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                         data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -102,19 +102,9 @@
                     <div class="footer-bottom-wrapper">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 copyright">
+                                <div class="col-md-12 text-center copyright">
                                     <p>&copy; 2019 HTML5 Template. DESIGNED BY <a href="https://webicode.com/">
                                             WEBICODE</a></p>
-                                </div>
-                                <div class="col-md-6 social-links">
-                                    <ul class="right">
-                                        <li><a href="#."><i class="fab fa-facebook"></i></a></li>
-                                        <li><a href="#."><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#."><i class="fab fa-dribbble"></i></a></li>
-                                        <li><a href="#."><i class="fab fa-behance"></i></a></li>
-                                        <li><a href="#."><i class="fab fa-pinterest"></i></a></li>
-                                        <li><a href="#."><i class="fab fa-google-plus"></i></a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +121,8 @@
     <script src="{{asset('assets_user/js/jquery.counterup.min.js')}}"></script>
     <script src="{{asset('assets_user/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets_user/js/main.js')}}"></script>
+    @yield('js')
+    
 </body>
 
 </html>
