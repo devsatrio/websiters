@@ -8,44 +8,21 @@
     <meta name="description" content="">
     <meta name="author" content="M_Adnan">
     <title>{{$st->web}}</title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="{{asset('assets_user/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href="{{asset('assets_user/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('assets_user/fonts/flaticon.css')}}" rel="stylesheet">
     <link href="{{asset('assets_user/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('assets_user/css/responsive.css')}}" rel="stylesheet">
-
-    <!-- fontawesome  -->
     <link href="{{asset('assets_user/css/all.min.css')}}" rel="stylesheet">
-
-    <!-- JavaScripts -->
     <script src="{{asset('assets_user/js/modernizr.js')}}"></script>
-
-    <!-- Online Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
     @yield('css')
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 </head>
 
 <body>
-
-    <!-- Wrap -->
     <div id="wrap">
-
-        <!-- header -->
         <header class="sticky">
             <div class="container">
-
-                <!-- Logo -->
                 <div class="logo"> <a href="index.html"><img class="img-responsive" src="{{asset('logo/'.$st->logo)}}"
                             alt="" width="50%"></a> </div>
                 <nav class="navbar ownmenu navbar-expand-lg" id="nav-resposive">
@@ -55,6 +32,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav" data-parent="#nav-resposive">
                         <ul class="nav">
                             <li class="active"> <a href="{{url('/')}}">Home</a> </li>
+                            <li> <a href="{{route('halaman-galeri')}}">Galeri</a> </li>
                             @foreach ($kt as $mn)
                             @php
                             $sub=DB::table('sub_kategoris')->where('idk',$mn->id)->get();
@@ -67,7 +45,8 @@
                                 <ul class="dropdown-menu">
                                     @foreach ($sub as $sb)
                                     <li>
-                                        <a href="{{route('subkategori',['sk'=>str_replace(' ','_',$sb->subkategori)])}}">
+                                        <a
+                                            href="{{route('subkategori',['sk'=>str_replace(' ','_',$sb->subkategori)])}}">
                                             {{$sb->subkategori}}
                                         </a>
                                     </li>
@@ -86,18 +65,11 @@
             </div>
             <div class="clearfix"></div>
         </header>
-
-        <!-- Content -->
         <div id="content">
             @yield('content')
         </div>
-
-        <!-- Footer -->
         <footer id="footer">
             <div class="footer-wrapper">
-
-
-                <!-- Footer Bottom -->
                 <div class="footer-bottom">
                     <div class="footer-bottom-wrapper">
                         <div class="container">
@@ -110,10 +82,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Footer Bottom -->
             </div>
         </footer>
-        <!-- End Footer -->
     </div>
     <script src="{{asset('assets_user/js/jquery-1.11.3.min.js')}}"></script>
     <script src="{{asset('assets_user/js/bootstrap.min.js')}}"></script>
@@ -122,7 +92,7 @@
     <script src="{{asset('assets_user/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets_user/js/main.js')}}"></script>
     @yield('js')
-    
+
 </body>
 
 </html>

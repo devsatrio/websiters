@@ -5,8 +5,6 @@
 @endsection
 
 @section('css')
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -67,13 +65,6 @@
                         <p>{!! $st->informasi !!}</p>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 padding-0">
-                    <div class="intro-txt-bnr">
-                        <h4>Share what’s up with your Professionals </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue conseqaut nibbhi
-                            ellit ipsum consectetur. </p>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -93,31 +84,46 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
-                    <!-- Company -->
                     @foreach ($gal as $g)
-                    <!-- <div class="col-sm-12 col-md-4 col-12" data-sub-html="{{str_replace('-',' ',$g->nama)}}"
-                    data-src="{{asset('galeri/'.$g->nama)}}">
-                    <img src="{{asset('galeri/'.$g->nama)}}" alt="" class="img-thumbnail">
-                </div> -->
+
                     <div class="col-sm-3">
-                    
+
                         <div class="com-inside">
                             <div class="img-sec"> <img src="{{asset('galeri/'.$g->nama)}}" class="img-responsive"
                                     alt="">
                                 <div class="hover-over">
                                     <div class="position-center-center">
-                                    <a class="btn" href="{{asset('galeri/'.$g->nama)}}" data-toggle="lightbox" data-title="Detail Foto" data-footer="">Detail</a>
+                                        <button class="btn" data-toggle="modal"
+                                            data-target=".bd-example-modal-lg">Detail</button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail Gambar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                <img src="{{asset('galeri/'.$g->nama)}}" class="img-responsive"
+                                    alt="" style="max-width:100%">
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                <div class="btn-center margin-top-30 text-center"> <a href="#." class="btn btn-inverse">View More</a> </div>
+                <div class="btn-center margin-top-30 text-center"> <a href="#." class="btn btn-inverse">Liha Lainya</a>
+                </div>
             </div>
             <!-- Btn Center -->
-           
+
         </div>
 </section>
 
@@ -165,8 +171,6 @@
                 @endforeach
             </ul>
             <div class="clearfix"></div>
-
-            
         </section>
     </div>
 </section>
@@ -175,37 +179,8 @@
 <section class="bg-white padding-top-100 padding-bottom-100">
     <div class="container">
         <div class="heading-block text-center">
-            <h2>Fasilitas</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue conseqaut nibbhi ellit ipsum
-                consectetur. </p>
-        </div>
-        <div class="testimonial style-4">
-            <div class="testi">
-                <div class="testi-slide">
-                    <div>
-                        <div class="avatar"><img class="img-circle img-responsive" src="{{asset('assets_user/images/testimonial-2a.png')}}"
-                                alt=" "></div>
-                        <div class="text-in">
-                            <p>“There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour,
-                                or randomised words which don't look even slightly believable.” </p>
-                            <h6>WHITE SHADOW WALKER</h6>
-                            <span> CEO/FOUNDER DELL</span>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="avatar"><img class="img-circle img-responsive" src="{{asset('assets_user/images/testimonial-2b.png')}}"
-                                alt=" "></div>
-                        <div class="text-in">
-                            <p>“There are many variations but the majority have suffered alteration. but the majority
-                                have suffered alteration in some form, by injected humour, or randomised words which
-                                don't look even slightly believable.”</p>
-                            <h6>M_ADNAN</h6>
-                            <span> CEO/FOUNDER DELL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2>Tentang Kami</h2>
+            <p>{!! $st->informasi !!}</p>
         </div>
     </div>
 </section>
@@ -215,8 +190,10 @@
             <div class="col-lg-6 padding-0">
                 <div class="contact-info"> <span class="h4">Hubungi Kami</span>
                     <ul>
-                        <li> <a href="https://api.whatsapp.com/send?phone={{$st->telp1}}" target="blank()">{{$st->telp1}}</a> </li>
-                        <li> <a href="https://api.whatsapp.com/send?phone={{$st->telp2}}" target="blank()">{{$st->telp2}}</a> </li>
+                        <li> <a href="https://api.whatsapp.com/send?phone={{$st->telp1}}"
+                                target="blank()">{{$st->telp1}}</a> </li>
+                        <li> <a href="https://api.whatsapp.com/send?phone={{$st->telp2}}"
+                                target="blank()">{{$st->telp2}}</a> </li>
                         <li>{{$st->email}}</li>
                         <li>
                             <p>{{$st->alamat}}</p>
@@ -249,13 +226,4 @@
 @endsection
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js.map"></script>
-    <script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            });</script>
 @endsection

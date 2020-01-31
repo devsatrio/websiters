@@ -112,9 +112,10 @@ Route::prefix('laporan')->group(function(){
 });
 Route::prefix('/')->group(function(){
     Route::get('/','User\FrontControl@index')->name('beranda');
+    Route::get('/halaman-galeri','User\FrontControl@galeri')->name('halaman-galeri');
     // Route::get('/menu/{k}','User\FrontControl@kategori')->name('kategori');
-    Route::get('/submenu/{sk}','User\FrontControl@subkategori')->name('subkategori');    
     Route::get('info/{url}','User\FrontControl@artikel')->name('info');
+    Route::get('/submenu/{sk}','User\FrontControl@subkategori')->name('subkategori');    
     Route::get('produk/{kode}','User\FrontControl@detailproduk')->name('info.detail.produk');        
 });
 Route::prefix('Customer')->group(function(){
